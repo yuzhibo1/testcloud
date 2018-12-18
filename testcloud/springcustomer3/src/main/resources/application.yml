@@ -1,0 +1,27 @@
+#本服务作为消费端相当于web服务器，调用其他服务器
+server:
+  port: 9001
+spring:
+  application:
+    name: comsumer3
+  zipkin:
+          base-url: http://localhost:9000
+          enabled: true
+  sleuth:
+        #监控开关
+        enabled: true
+        #采样率
+        sampler:
+          percentage: 1
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+#除开health接口还依赖endpoints.health.sensitive的配置外，其他接口都不需要输入用户名和密码了
+management:
+  security:
+    enabled: false
+
+endpoints:
+  refresh:
+    sensitive: false

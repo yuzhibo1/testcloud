@@ -1,0 +1,39 @@
+#本服务相当于service2服务器，进行逻辑操作,与service1为同级服务
+server:
+  port: 9003
+spring:
+  application:
+      name: mybatis3
+  datasource:
+      url: jdbc:mysql://localhost:3306/test11?useSSL=false
+      username: root
+      password: 123456
+      driver-class-name: com.mysql.jdbc.Driver
+  zipkin:
+      base-url: http://localhost:9000
+      enabled: true
+  sleuth:
+        #监控开关
+        enabled: true
+        #采样率
+        sampler:
+          percentage: 1
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  #配置配置注册中心显示服务的ip地址和端口
+  instance:
+    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
+    prefer-ip-address: true
+
+mybatis:
+  mapper-locations: classpath:daos/*.xml
+
+management:
+  security:
+    enabled: false
+
+endpoints:
+  refresh:
+    sensitive: false

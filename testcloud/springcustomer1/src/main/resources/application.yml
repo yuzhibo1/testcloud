@@ -1,0 +1,21 @@
+#本服务作为zipkin服务器
+server:
+  port: 9000
+
+spring:
+  application:
+    name: comsumer
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    instance-id: ${spring.application.name}:${server.port}
+    prefer-ip-address: true
+management:
+  security:
+    enabled: false
+
+endpoints:
+  refresh:
+    sensitive: false
