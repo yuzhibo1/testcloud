@@ -15,6 +15,11 @@
 6、springprovider2模块为生产者模块主要目的是为了测试用（可DIY）
 
 
+
+启动顺序：
+	springcloudeureka模块 -》 springcustomer1模块 -》其他模块
+
+
 数据库中所需表创建SQL:
 -- ----------------------------
 -- Table structure for users
