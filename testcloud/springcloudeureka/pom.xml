@@ -6,7 +6,6 @@
 		<groupId>testcloud</groupId>
 		<artifactId>com.demo</artifactId>
 		<version>1.0-SNAPSHOT</version>
-		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
 	<artifactId>springcloudeureka</artifactId>
@@ -41,6 +40,10 @@
 			<artifactId>spring-boot-devtools</artifactId>
 			<scope>true</scope>
 			<optional>true</optional> <!-- 这个需要为 true 热部署才有效 -->
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-autoconfigure</artifactId>
 		</dependency>
 	</dependencies>
 
