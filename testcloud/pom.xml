@@ -49,8 +49,6 @@
 
     <modules>
         <module>springcloudeureka</module>
-        <module>springprovider1</module>
-        <module>springprovider2</module>
         <module>springmybatis</module>
         <module>springmybatis2</module>
         <module>springcustomer1</module>
