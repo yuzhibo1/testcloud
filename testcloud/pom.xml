@@ -53,5 +53,6 @@
         <module>springmybatis2</module>
         <module>springcustomer1</module>
         <module>springcustomer3</module>
+        <module>testapi</module>
     </modules>
 </project>

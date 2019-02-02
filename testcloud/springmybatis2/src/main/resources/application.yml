@@ -3,7 +3,7 @@ server:
   port: 9003
 spring:
   application:
-      name: mybatis3
+      name: mybatis2
   datasource:
       url: jdbc:mysql://localhost:3306/test11?useSSL=false
       username: root

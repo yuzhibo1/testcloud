@@ -1,4 +1,4 @@
-package com.example.springcustomer1;
+package com.example.testapi;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+    <script src="/js/echarts.min.js"></script>
+    <script src="/js/echarts-wordcloud.js"></script>
+
+    <!-- 引入jquery.js -->
+    <script type="text/javascript" src="/js/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+<style>
+    html, body, #main {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+    }
+</style>
+<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+<div id="main" style="width: 600px;height:400px;"></div>
+<div id="mainwords" style="width: 600px;height:400px;"></div>
+<script type="text/javascript">
+    // 基于准备好的dom，初始化echarts实例
+    var myChart = echarts.init(document.getElementById('main'));
+
+    // 指定图表的配置项和数据
+    /*var option = {
+        title: {
+            text: 'ECharts 入门示例'
+        },
+        tooltip: {},
+        legend: {
+            data:['销量']
+        },
+        xAxis: {
+            data: ["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"]
+        },
+        yAxis: {},
+        series: [{
+            name: '销量',
+            type: 'bar',
+            data: [5, 20, 36, 10, 10, 20]
+        }]
+    };*/
+    var option = {
+        title: {
+            text: '日期对应拒绝数量'
+        },
+        xAxis: {
+            type: 'category',
+            data: []
+        },
+        yAxis: {
+            type: 'value'
+        },
+        series: [{
+            data: [],
+            type: 'line'
+        }]
+    };
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
+</script>
+<script>
+    var chart = echarts.init(document.getElementById('mainwords'));
+
+    var option = {
+        tooltip: {},
+        series: [ {
+            type: 'wordCloud',
+            gridSize: 2,
+            sizeRange: [12, 50],
+            rotationRange: [-90, 90],
+            shape: 'pentagon',
+            width: 600,
+            height: 400,
+            drawOutOfBound: true,
+            textStyle: {
+                normal: {
+                    color: function () {
+                        return 'rgb(' + [
+                                    Math.round(Math.random() * 160),
+                                    Math.round(Math.random() * 160),
+                                    Math.round(Math.random() * 160)
+                                ].join(',') + ')';
+                    }
+                },
+                emphasis: {
+                    shadowBlur: 10,
+                    shadowColor: '#333'
+                }
+            },
+            data: [
+                {
+                    name: 'Sam S Club',
+                    value: 10000,
+                    textStyle: {
+                        normal: {
+                            color: 'black'
+                        },
+                        emphasis: {
+                            color: 'red'
+                        }
+                    }
+                },
+                {
+                    name: 'Macys',
+                    value: 6181
+                },
+                {
+                    name: 'Amy Schumer',
+                    value: 4386
+                },
+                {
+                    name: 'Jurassic World',
+                    value: 4055
+                },
+                {
+                    name: 'bob',
+                    value: 4035
+                },
+                {
+                    name: 'YU',
+                    value: 4025
+                },
+                {
+                    name: 'Charter Communications',
+                    value: 2467
+                },
+                {
+                    name: 'Chick Fil A',
+                    value: 2244
+                },
+                {
+                    name: 'Planet Fitness',
+                    value: 1898
+                },
+                {
+                    name: 'Pitch Perfect',
+                    value: 1484
+                },
+                {
+                    name: 'Express',
+                    value: 1112
+                },
+                {
+                    name: 'Home',
+                    value: 965
+                },
+                {
+                    name: 'Johnny Depp',
+                    value: 847
+                },
+                {
+                    name: 'Lena Dunham',
+                    value: 582
+                },
+                {
+                    name: 'Lewis Hamilton',
+                    value: 555
+                },
+                {
+                    name: 'KXAN',
+                    value: 550
+                },
+                {
+                    name: 'Mary Ellen Mark',
+                    value: 462
+                },
+                {
+                    name: 'Farrah Abraham',
+                    value: 366
+                },
+                {
+                    name: 'Rita Ora',
+                    value: 360
+                },
+                {
+                    name: 'Serena Williams',
+                    value: 282
+                },
+                {
+                    name: 'NCAA baseball tournament',
+                    value: 273
+                },
+                {
+                    name: 'Point Break',
+                    value: 265
+                }
+            ]
+        } ]
+    };
+
+    chart.setOption(option);
+
+    window.onresize = chart.resize;
+</script>
+</body>
+<!-- 引入页面头登录信息 -->
+<script src="/js/echartsCreat/createDemo.js?timestamp=e90288e65f"></script>
+</html>

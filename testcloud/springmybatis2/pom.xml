@@ -38,6 +38,7 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<!-- 依赖themis-api  core-->
 		<!--<dependency>-->
 		<!--<groupId>org.springframework.cloud</groupId>-->
 		<!--<artifactId>spring-cloud-sleuth-zipkin</artifactId>-->
@@ -72,6 +73,17 @@
 			<artifactId>junit</artifactId>
 			<version>4.12</version>
 			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>testcloud</groupId>
+			<artifactId>testapi</artifactId>
+			<version>1.0-SNAPSHOT</version>
+			<exclusions>
+				<exclusion>
+					<groupId>*</groupId>
+					<artifactId>*</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 	</dependencies>
 

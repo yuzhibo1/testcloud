@@ -1,6 +1,6 @@
-package com.example.springcustomer1.controller;
+package com.example.testapi.controller;
 
-import com.example.springcustomer1.service.HelloService;
+import com.example.testapi.service.HelloService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

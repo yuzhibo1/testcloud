@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.springmybatis2.dao.RefuseQueueMapper">
+  <resultMap id="BaseResultMap" type="com.example.testapi.domain.RefuseQueue">
+    <id column="ORG_CDE" jdbcType="VARCHAR" property="orgCde" />
+    <id column="PRD_ID" jdbcType="VARCHAR" property="prdId" />
+    <id column="APPL_CDE" jdbcType="VARCHAR" property="applCde" />
+    <id column="ID_TYP" jdbcType="VARCHAR" property="idTyp" />
+    <id column="ID_NO" jdbcType="VARCHAR" property="idNo" />
+    <result column="CUST_NAME" jdbcType="VARCHAR" property="custName" />
+    <result column="APPL_DT" jdbcType="VARCHAR" property="applDt" />
+    <result column="REFUSE_DT" jdbcType="VARCHAR" property="refuseDt" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    ORG_CDE, PRD_ID, APPL_CDE, ID_TYP, ID_NO, CUST_NAME, APPL_DT, REFUSE_DT
+  </sql>
+  <select id="selectByExample" parameterType="com.example.testapi.domain.RefuseQueueCriteria" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from refuse_queue
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="com.example.testapi.domain.RefuseQueueKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from refuse_queue
+    where ORG_CDE = #{orgCde,jdbcType=VARCHAR}
+      and PRD_ID = #{prdId,jdbcType=VARCHAR}
+      and APPL_CDE = #{applCde,jdbcType=VARCHAR}
+      and ID_TYP = #{idTyp,jdbcType=VARCHAR}
+      and ID_NO = #{idNo,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.example.testapi.domain.RefuseQueueKey">
+    delete from refuse_queue
+    where ORG_CDE = #{orgCde,jdbcType=VARCHAR}
+      and PRD_ID = #{prdId,jdbcType=VARCHAR}
+      and APPL_CDE = #{applCde,jdbcType=VARCHAR}
+      and ID_TYP = #{idTyp,jdbcType=VARCHAR}
+      and ID_NO = #{idNo,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.example.testapi.domain.RefuseQueueCriteria">
+    delete from refuse_queue
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.example.testapi.domain.RefuseQueue">
+    insert into refuse_queue (ORG_CDE, PRD_ID, APPL_CDE, 
+      ID_TYP, ID_NO, CUST_NAME, 
+      APPL_DT, REFUSE_DT)
+    values (#{orgCde,jdbcType=VARCHAR}, #{prdId,jdbcType=VARCHAR}, #{applCde,jdbcType=VARCHAR}, 
+      #{idTyp,jdbcType=VARCHAR}, #{idNo,jdbcType=VARCHAR}, #{custName,jdbcType=VARCHAR}, 
+      #{applDt,jdbcType=VARCHAR}, #{refuseDt,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.testapi.domain.RefuseQueue">
+    insert into refuse_queue
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="orgCde != null">
+        ORG_CDE,
+      </if>
+      <if test="prdId != null">
+        PRD_ID,
+      </if>
+      <if test="applCde != null">
+        APPL_CDE,
+      </if>
+      <if test="idTyp != null">
+        ID_TYP,
+      </if>
+      <if test="idNo != null">
+        ID_NO,
+      </if>
+      <if test="custName != null">
+        CUST_NAME,
+      </if>
+      <if test="applDt != null">
+        APPL_DT,
+      </if>
+      <if test="refuseDt != null">
+        REFUSE_DT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="orgCde != null">
+        #{orgCde,jdbcType=VARCHAR},
+      </if>
+      <if test="prdId != null">
+        #{prdId,jdbcType=VARCHAR},
+      </if>
+      <if test="applCde != null">
+        #{applCde,jdbcType=VARCHAR},
+      </if>
+      <if test="idTyp != null">
+        #{idTyp,jdbcType=VARCHAR},
+      </if>
+      <if test="idNo != null">
+        #{idNo,jdbcType=VARCHAR},
+      </if>
+      <if test="custName != null">
+        #{custName,jdbcType=VARCHAR},
+      </if>
+      <if test="applDt != null">
+        #{applDt,jdbcType=VARCHAR},
+      </if>
+      <if test="refuseDt != null">
+        #{refuseDt,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.example.testapi.domain.RefuseQueueCriteria" resultType="java.lang.Long">
+    select count(*) from refuse_queue
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update refuse_queue
+    <set>
+      <if test="record.orgCde != null">
+        ORG_CDE = #{record.orgCde,jdbcType=VARCHAR},
+      </if>
+      <if test="record.prdId != null">
+        PRD_ID = #{record.prdId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.applCde != null">
+        APPL_CDE = #{record.applCde,jdbcType=VARCHAR},
+      </if>
+      <if test="record.idTyp != null">
+        ID_TYP = #{record.idTyp,jdbcType=VARCHAR},
+      </if>
+      <if test="record.idNo != null">
+        ID_NO = #{record.idNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.custName != null">
+        CUST_NAME = #{record.custName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.applDt != null">
+        APPL_DT = #{record.applDt,jdbcType=VARCHAR},
+      </if>
+      <if test="record.refuseDt != null">
+        REFUSE_DT = #{record.refuseDt,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update refuse_queue
+    set ORG_CDE = #{record.orgCde,jdbcType=VARCHAR},
+      PRD_ID = #{record.prdId,jdbcType=VARCHAR},
+      APPL_CDE = #{record.applCde,jdbcType=VARCHAR},
+      ID_TYP = #{record.idTyp,jdbcType=VARCHAR},
+      ID_NO = #{record.idNo,jdbcType=VARCHAR},
+      CUST_NAME = #{record.custName,jdbcType=VARCHAR},
+      APPL_DT = #{record.applDt,jdbcType=VARCHAR},
+      REFUSE_DT = #{record.refuseDt,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.testapi.domain.RefuseQueue">
+    update refuse_queue
+    <set>
+      <if test="custName != null">
+        CUST_NAME = #{custName,jdbcType=VARCHAR},
+      </if>
+      <if test="applDt != null">
+        APPL_DT = #{applDt,jdbcType=VARCHAR},
+      </if>
+      <if test="refuseDt != null">
+        REFUSE_DT = #{refuseDt,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ORG_CDE = #{orgCde,jdbcType=VARCHAR}
+      and PRD_ID = #{prdId,jdbcType=VARCHAR}
+      and APPL_CDE = #{applCde,jdbcType=VARCHAR}
+      and ID_TYP = #{idTyp,jdbcType=VARCHAR}
+      and ID_NO = #{idNo,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.testapi.domain.RefuseQueue">
+    update refuse_queue
+    set CUST_NAME = #{custName,jdbcType=VARCHAR},
+      APPL_DT = #{applDt,jdbcType=VARCHAR},
+      REFUSE_DT = #{refuseDt,jdbcType=VARCHAR}
+    where ORG_CDE = #{orgCde,jdbcType=VARCHAR}
+      and PRD_ID = #{prdId,jdbcType=VARCHAR}
+      and APPL_CDE = #{applCde,jdbcType=VARCHAR}
+      and ID_TYP = #{idTyp,jdbcType=VARCHAR}
+      and ID_NO = #{idNo,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -1,11 +1,15 @@
 package com.example.springmybatis2.controller;
 
 import com.example.springmybatis2.domain.Users;
+import com.example.springmybatis2.service.IRefuseQueue;
 import com.example.springmybatis2.service.IUsersService;
 import com.example.springmybatis2.utils.JacksonUtil;
+import com.example.testapi.domain.RefuseQueue;
+import org.apache.catalina.servlet4preview.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
@@ -24,6 +28,9 @@ public class HelloController {
 
     @Autowired
     private IUsersService usersServiceImpl;
+
+    @Autowired
+    private IRefuseQueue refuseQueue;
 
     @RequestMapping("/info")
     private String index(){
@@ -47,5 +54,10 @@ public class HelloController {
 
         String resultJson = JacksonUtil.mapToJson(map);
         return resultJson;
+    }
+
+    @RequestMapping("/refuseQueue")
+    private List<RefuseQueue> index(HttpServletRequest request,@RequestParam("date") String date){
+        return refuseQueue.getListByDate(date);
     }
 }

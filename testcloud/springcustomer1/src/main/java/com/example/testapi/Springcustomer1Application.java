@@ -1,4 +1,4 @@
-package com.example.springcustomer1;
+package com.example.testapi;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

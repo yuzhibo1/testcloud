@@ -1,4 +1,4 @@
-package com.example.springcustomer1.service;
+package com.example.testapi.service;
 
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.beans.factory.annotation.Autowired;
