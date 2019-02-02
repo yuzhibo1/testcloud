@@ -1,26 +1,26 @@
 # testcloud JUST FOR FUN
 
-1¡¢springcloudeurekaÄ£¿éÊ¹ÓÃeureka×÷Îª·şÎñ×¢²áÖĞĞÄ
+1ã€springcloudeurekaæ¨¡å—ä½¿ç”¨eurekaä½œä¸ºæœåŠ¡æ³¨å†Œä¸­å¿ƒ
 
-2¡¢springcustomer1Ä£¿éÎªzipkinÄ£¿é£¬ÎªÇëÇó×·×Ù·şÎñ£¨Õâ¸öÎªÉ¶Ö»ÄÜ×îÖÕÒ»¸ö·şÎñ£¬ÓĞÎÊÌâ°¡£©
+2ã€springcustomer1æ¨¡å—ä¸ºzipkinæ¨¡å—ï¼Œä¸ºè¯·æ±‚è¿½è¸ªæœåŠ¡ï¼ˆè¿™ä¸ªä¸ºå•¥åªèƒ½æœ€ç»ˆä¸€ä¸ªæœåŠ¡ï¼Œæœ‰é—®é¢˜å•Šï¼‰
 
-3¡¢springcustomer3Ä£¿éÎªÏû·ÑÕßÄ£¿éÌá¹©feign¸ºÔØ¾ùºâ·şÎñ
+3ã€springcustomer3æ¨¡å—ä¸ºæ¶ˆè´¹è€…æ¨¡å—æä¾›feignè´Ÿè½½å‡è¡¡æœåŠ¡
 
-4¡¢springmybatis Ä£¿éÎªÉú²úÕßÄ£¿é£¨mybatis£©mysqlÊı¾İ¿âÅäÖÃ×Ô¼ºĞŞ¸Ä
+4ã€springmybatis æ¨¡å—ä¸ºç”Ÿäº§è€…æ¨¡å—ï¼ˆmybatisï¼‰mysqlæ•°æ®åº“é…ç½®è‡ªå·±ä¿®æ”¹
 
-5¡¢springmybatis2 Ä£¿éÎªÉú²úÕßÄ£¿é£¨mybatis£©mysqlÊı¾İ¿âÅäÖÃ×Ô¼ºĞŞ¸Ä
+5ã€springmybatis2 æ¨¡å—ä¸ºç”Ÿäº§è€…æ¨¡å—ï¼ˆmybatisï¼‰mysqlæ•°æ®åº“é…ç½®è‡ªå·±ä¿®æ”¹
 
-6¡¢springprovider1Ä£¿éÎªÉú²úÕßÄ£¿éÖ÷ÒªÄ¿µÄÊÇÎªÁË²âÊÔÓÃ£¨¿ÉDIY£©
+6ã€springprovider1æ¨¡å—ä¸ºç”Ÿäº§è€…æ¨¡å—ä¸»è¦ç›®çš„æ˜¯ä¸ºäº†æµ‹è¯•ç”¨ï¼ˆå¯DIYï¼‰
 
-6¡¢springprovider2Ä£¿éÎªÉú²úÕßÄ£¿éÖ÷ÒªÄ¿µÄÊÇÎªÁË²âÊÔÓÃ£¨¿ÉDIY£©
-
-
-
-Æô¶¯Ë³Ğò£º
-	springcloudeurekaÄ£¿é -¡· springcustomer1Ä£¿é -¡·ÆäËûÄ£¿é
+6ã€springprovider2æ¨¡å—ä¸ºç”Ÿäº§è€…æ¨¡å—ä¸»è¦ç›®çš„æ˜¯ä¸ºäº†æµ‹è¯•ç”¨ï¼ˆå¯DIYï¼‰
 
 
-Êı¾İ¿âÖĞËùĞè±í´´½¨SQL:
+
+å¯åŠ¨é¡ºåºï¼š
+	springcloudeurekaæ¨¡å— -ã€‹ springcustomer1æ¨¡å— -ã€‹å…¶ä»–æ¨¡å—
+
+
+æ•°æ®åº“ä¸­æ‰€éœ€è¡¨åˆ›å»ºSQL:
 -- ----------------------------
 -- Table structure for users
 -- ----------------------------
@@ -45,5 +45,18 @@ CREATE TABLE `users` (
 INSERT INTO `users` VALUES ('1', 'charlay_yu@163.com', 'yxy', 'pbkdf2:sha256:50000$7Qvd8X5c$503583dd0bb0e4e7a4cad2172a431639bb32da49c5aec0dfa966d7aaec023b22', '1', null, '1988-12-05 00:00:00', '/static/upload/201806111649229967.png');
 INSERT INTO `users` VALUES ('6', '1037041223@qq.com', 'zwy', 'pbkdf2:sha256:50000$bSKiCWmF$4eda1a22fa1171e7e88d5b33a68215d716c655f7fd3576f1c38ff1a0c035bd36', '1', null, '2000-01-01 00:00:00', '/static/upload/201810262009485886.jpg');
 INSERT INTO `users` VALUES ('7', '1357200562@qq.com', 'bob', 'pbkdf2:sha256:50000$bB95HkZ7$7013ba5de821bc557b74fb5dce15b581ff8d35ded042cd5e030465230bcc300f', '1', null, '1991-02-02 00:00:00', '/static/upload/201810311124501084.png');
+
+
+CREATE TABLE `refuse_queue` (
+  `ORG_CDE` varchar(10) COLLATE utf8_bin NOT NULL COMMENT 'æœºæ„ä»£ç ',
+  `PRD_ID` varchar(10) COLLATE utf8_bin NOT NULL COMMENT 'äº§å“ä»£ç ',
+  `APPL_CDE` varchar(25) COLLATE utf8_bin NOT NULL COMMENT 'ç”³è¯·ä¹¦ç¼–å·',
+  `ID_TYP` varchar(2) COLLATE utf8_bin NOT NULL COMMENT '00ã€å‘˜å·¥ä»£ç  20ã€èº«ä»½è¯ 22ã€æŠ¤ç…§ 23ã€å†›å®˜è¯ 25ã€æ¸¯æ¾³å±…æ°‘æ¥å¾€å†…åœ°é€šè¡Œè¯ 26ã€å°æ¹¾å±…æ°‘æ¥å¾€å¤§é™†é€šè¡Œè¯ 2Xã€å…¶ä»–è¯ä»¶ 30ã€ç»„ç»‡æœºæ„ä»£ç è¯ 31ã€è¥ä¸šæ‰§ç…§',
+  `ID_NO` varchar(20) COLLATE utf8_bin NOT NULL COMMENT 'è§’è‰²èº«ä»½è¯å·ç ',
+  `CUST_NAME` varchar(60) COLLATE utf8_bin NOT NULL COMMENT 'å§“å',
+  `APPL_DT` varchar(20) COLLATE utf8_bin NOT NULL COMMENT 'ç”³è¯·æ—¥æœŸ',
+  `REFUSE_DT` varchar(10) COLLATE utf8_bin NOT NULL COMMENT 'æ‹’ç»æ—¥æœŸ',
+  PRIMARY KEY (`ORG_CDE`,`PRD_ID`,`APPL_CDE`,`ID_TYP`,`ID_NO`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 
